@@ -1,0 +1,25 @@
+<html lang="zh-CN">
+<head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>URL编解码 - 云工具 | 免费在线工具</title>
+<meta name="description" content="URL编码/解码工具，快速转换URL中的特殊字符。">
+<meta name="keywords" content="URL编码,URL解码,URL转码">
+<link rel="stylesheet" href="../assets/css/style.css">
+</head>
+<body>
+<header class="header"><div class="header-inner"><a href="/" class="logo" style="text-decoration:none">&#x2601;&#xfe0f; 云工具<span>免费</span></a><nav class="nav-links"><a href="/">全部工具</a><a href="/about.html">关于</a></nav></div></header>
+<div class="tool-page">
+  <div class="breadcrumb"><a href="/">首页</a> / <span class="current">URL编解码</span></div>
+  <h1>URL编解码</h1>
+  <p class="subtitle">__DESC__</p>
+  <div class="tool-card-body"><div class="form-group"><label class="label">输入文本</label><textarea id="urlInput" rows="6" placeholder="输入URL或文本..."></textarea></div>
+<div class="btn-group"><button class="btn btn-primary" onclick="urlEncode()">URL编码</button><button class="btn btn-outline" onclick="urlDecode()">URL解码</button><button class="btn btn-outline" onclick="urlClear()">清空</button></div>
+<div class="form-group"><label class="label">输出</label><textarea id="urlOutput" rows="6" readonly></textarea></div>
+<div class="btn-group"><button class="btn btn-sm btn-outline" onclick="copyText(document.getElementById('urlOutput').value)">复制结果</button></div>
+<script>function urlEncode(){document.getElementById("urlOutput").value=encodeURIComponent(document.getElementById("urlInput").value)}function urlDecode(){try{document.getElementById("urlOutput").value=decodeURIComponent(document.getElementById("urlInput").value)}catch(e){document.getElementById("urlOutput").value="错误: 无效的URL编码"}}function urlClear(){document.getElementById("urlInput").value="";document.getElementById("urlOutput").value=""}</script></div>
+  <div class="ad-slot">广告位招租 &#183; Google AdSense / &#x767e;&#x5ea6;&#x8054;&#x76df;</div>
+</div>
+<footer class="footer"><div class="container"><p>&#x2601;&#xfe0f; 云工具 - 完全免费的在线工具箱</p><p style="margin-top:4px"><a href="/">首页</a> &#183; <a href="/about.html">关于我们</a> &#183; <a href="/privacy.html">隐私政策</a></p></div></footer>
+<div class="copy-toast" id="copyToast"></div>
+<script>function copyText(t){if(!t)return;var o=document.getElementById("copyToast");navigator.clipboard?navigator.clipboard.writeText(t).then(function(){o.textContent="\u5df2\u590d\u5236\u5230\u526a\u8d34\u677f";o.classList.add("show");setTimeout(function(){o.classList.remove("show")},2e3)}).catch(function(){fallbackCopy(t)}):fallbackCopy(t)}function fallbackCopy(t){var o=document.createElement("textarea");o.value=t;o.style.position="fixed";o.style.left="-9999px";document.body.appendChild(o);o.select();document.execCommand("copy");document.body.removeChild(o);var n=document.getElementById("copyToast");n.textContent="\u5df2\u590d\u5236\u5230\u526a\u8d34\u677f";n.classList.add("show");setTimeout(function(){n.classList.remove("show")},2e3)}</script>
+</body>
+</html>
