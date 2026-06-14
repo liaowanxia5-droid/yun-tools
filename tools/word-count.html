@@ -1,0 +1,30 @@
+<html lang="zh-CN">
+<head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>字数统计 - 云工具 | 免费在线工具</title>
+<meta name="description" content="在线统计文本字数、字符数、段落数、句子数。支持实时统计，即输即得。">
+<meta name="keywords" content="字数统计,在线字数,字符统计">
+<link rel="stylesheet" href="../assets/css/style.css">
+</head>
+<body>
+<header class="header"><div class="header-inner"><a href="/" class="logo" style="text-decoration:none">&#x2601;&#xfe0f; 云工具<span>免费</span></a><nav class="nav-links"><a href="/">全部工具</a><a href="/about.html">关于</a></nav></div></header>
+<div class="tool-page">
+  <div class="breadcrumb"><a href="/">首页</a> / <span class="current">字数统计</span></div>
+  <h1>字数统计</h1>
+  <p class="subtitle">__DESC__</p>
+  <div class="tool-card-body"><div class="form-group"><label class="label">输入文本</label><textarea id="wcInput" rows="10" placeholder="在此粘贴或输入文本..." oninput="countWords()"></textarea></div>
+<div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(130px,1fr));gap:12px">
+<div class="output-area" style="text-align:center;padding:16px"><div style="font-size:1.5rem;font-weight:700;color:#2563eb" id="wcChars">0</div><div style="color:#6b7280;font-size:0.8rem">字符数</div></div>
+<div class="output-area" style="text-align:center;padding:16px"><div style="font-size:1.5rem;font-weight:700;color:#10b981" id="wcCjk">0</div><div style="color:#6b7280;font-size:0.8rem">中文字数</div></div>
+<div class="output-area" style="text-align:center;padding:16px"><div style="font-size:1.5rem;font-weight:700;color:#f59e0b" id="wcWords">0</div><div style="color:#6b7280;font-size:0.8rem">英文单词</div></div>
+<div class="output-area" style="text-align:center;padding:16px"><div style="font-size:1.5rem;font-weight:700;color:#8b5cf6" id="wcLines">0</div><div style="color:#6b7280;font-size:0.8rem">行数</div></div>
+<div class="output-area" style="text-align:center;padding:16px"><div style="font-size:1.5rem;font-weight:700;color:#ec4899" id="wcParas">0</div><div style="color:#6b7280;font-size:0.8rem">段落数</div></div>
+<div class="output-area" style="text-align:center;padding:16px"><div style="font-size:1.5rem;font-weight:700;color:#14b8a6" id="wcBytes">0</div><div style="color:#6b7280;font-size:0.8rem">字节数</div></div>
+</div>
+<script>function countWords(){var t=document.getElementById("wcInput").value;document.getElementById("wcChars").textContent=t.length;var m=t.match(/[一-鿿㐀-䶿]/g);document.getElementById("wcCjk").textContent=m?m.length:0;var w=t.match(/[a-zA-Z]+/g);document.getElementById("wcWords").textContent=w?w.length:0;document.getElementById("wcLines").textContent=t?t.split("\n").length:0;document.getElementById("wcParas").textContent=t.split("\n").filter(function(p){return p.trim()}).length;document.getElementById("wcBytes").textContent=new Blob([t]).size}</script></div>
+  <div class="ad-slot">广告位招租 &#183; Google AdSense / &#x767e;&#x5ea6;&#x8054;&#x76df;</div>
+</div>
+<footer class="footer"><div class="container"><p>&#x2601;&#xfe0f; 云工具 - 完全免费的在线工具箱</p><p style="margin-top:4px"><a href="/">首页</a> &#183; <a href="/about.html">关于我们</a> &#183; <a href="/privacy.html">隐私政策</a></p></div></footer>
+<div class="copy-toast" id="copyToast"></div>
+<script>function copyText(t){if(!t)return;var o=document.getElementById("copyToast");navigator.clipboard?navigator.clipboard.writeText(t).then(function(){o.textContent="\u5df2\u590d\u5236\u5230\u526a\u8d34\u677f";o.classList.add("show");setTimeout(function(){o.classList.remove("show")},2e3)}).catch(function(){fallbackCopy(t)}):fallbackCopy(t)}function fallbackCopy(t){var o=document.createElement("textarea");o.value=t;o.style.position="fixed";o.style.left="-9999px";document.body.appendChild(o);o.select();document.execCommand("copy");document.body.removeChild(o);var n=document.getElementById("copyToast");n.textContent="\u5df2\u590d\u5236\u5230\u526a\u8d34\u677f";n.classList.add("show");setTimeout(function(){n.classList.remove("show")},2e3)}</script>
+</body>
+</html>
