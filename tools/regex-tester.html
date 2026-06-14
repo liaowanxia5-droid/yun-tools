@@ -1,0 +1,24 @@
+<html lang="zh-CN">
+<head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>正则表达式测试 - 云工具 | 免费在线工具</title>
+<meta name="description" content="在线测试正则表达式匹配结果。输入正则和测试文本，实时显示匹配。">
+<meta name="keywords" content="正则测试,正则表达式,Regex测试,在线正则">
+<link rel="stylesheet" href="../assets/css/style.css">
+</head>
+<body>
+<header class="header"><div class="header-inner"><a href="/" class="logo" style="text-decoration:none">&#x2601;&#xfe0f; 云工具<span>免费</span></a><nav class="nav-links"><a href="/">全部工具</a><a href="/about.html">关于</a></nav></div></header>
+<div class="tool-page">
+  <div class="breadcrumb"><a href="/">首页</a> / <span class="current">正则表达式测试</span></div>
+  <h1>正则表达式测试</h1>
+  <p class="subtitle">__DESC__</p>
+  <div class="tool-card-body"><div class="form-group"><label class="label">正则表达式</label><div class="flex-row"><input type="text" id="rxPattern" placeholder="eg: \\d+" style="flex:1;font-family:monospace" oninput="testRegex()"><select id="rxFlags" onchange="testRegex()" style="width:auto"><option value="gi">gi</option><option value="g">g</option><option value="i">i</option><option value="">无</option></select></div></div>
+<div class="form-group"><label class="label">测试文本</label><textarea id="rxText" rows="8" oninput="testRegex()">Hello 2024! test@123.com 138-0000-1111</textarea></div>
+<div class="form-group"><label class="label">匹配结果</label><div id="rxResult" class="output-area" style="min-height:80px"></div></div>
+<script>function testRegex(){var p=document.getElementById("rxPattern").value,t=document.getElementById("rxText").value,f=document.getElementById("rxFlags").value,res=document.getElementById("rxResult");if(!p){res.innerHTML="请输入正则";return}try{var re=new RegExp(p,f),ms=[],seen={},m;while((m=re.exec(t))!==null){var k=m[0]+"_"+m.index;if(seen[k])break;seen[k]=true;ms.push({a:m[0],i:m.index});if(!f.includes("g"))break}if(ms.length===0)res.innerHTML="没有匹配结果";else res.innerHTML="找到 "+ms.length+" 个匹配:<br>"+ms.map(function(v,i){return'<div style="padding:3px 0">'+(i+1)+'. <span style="background:#dbeafe;padding:2px 6px;border-radius:4px;font-family:monospace">'+v.a+'</span> (位置:'+v.i+")</div>"}).join("")}catch(e){res.innerHTML='<span style="color:#ef4444">语法错误: '+e.message+"</span>"}}testRegex()</script></div>
+  <div class="ad-slot">广告位招租 &#183; Google AdSense / &#x767e;&#x5ea6;&#x8054;&#x76df;</div>
+</div>
+<footer class="footer"><div class="container"><p>&#x2601;&#xfe0f; 云工具 - 完全免费的在线工具箱</p><p style="margin-top:4px"><a href="/">首页</a> &#183; <a href="/about.html">关于我们</a> &#183; <a href="/privacy.html">隐私政策</a></p></div></footer>
+<div class="copy-toast" id="copyToast"></div>
+<script>function copyText(t){if(!t)return;var o=document.getElementById("copyToast");navigator.clipboard?navigator.clipboard.writeText(t).then(function(){o.textContent="\u5df2\u590d\u5236\u5230\u526a\u8d34\u677f";o.classList.add("show");setTimeout(function(){o.classList.remove("show")},2e3)}).catch(function(){fallbackCopy(t)}):fallbackCopy(t)}function fallbackCopy(t){var o=document.createElement("textarea");o.value=t;o.style.position="fixed";o.style.left="-9999px";document.body.appendChild(o);o.select();document.execCommand("copy");document.body.removeChild(o);var n=document.getElementById("copyToast");n.textContent="\u5df2\u590d\u5236\u5230\u526a\u8d34\u677f";n.classList.add("show");setTimeout(function(){n.classList.remove("show")},2e3)}</script>
+</body>
+</html>
