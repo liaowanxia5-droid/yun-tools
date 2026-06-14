@@ -1,0 +1,25 @@
+<html lang="zh-CN">
+<head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>图片压缩 - 云工具 | 免费在线工具</title>
+<meta name="description" content="在线压缩PNG和JPEG图片，自由调节压缩质量，保持清晰度的同时大幅减小文件体积。">
+<meta name="keywords" content="在线图片压缩,PNG压缩,JPEG压缩,图片瘦身">
+<link rel="stylesheet" href="../assets/css/style.css">
+</head>
+<body>
+<header class="header"><div class="header-inner"><a href="/" class="logo" style="text-decoration:none">&#x2601;&#xfe0f; 云工具<span>免费</span></a><nav class="nav-links"><a href="/">全部工具</a><a href="/about.html">关于</a></nav></div></header>
+<div class="tool-page">
+  <div class="breadcrumb"><a href="/">首页</a> / <span class="current">图片压缩</span></div>
+  <h1>图片压缩</h1>
+  <p class="subtitle">__DESC__</p>
+  <div class="tool-card-body"><div class="form-group"><label class="label">选择图片</label><input type="file" id="imageInput" accept="image/png,image/jpeg,image/webp" style="padding:8px;border:1px solid #d1d5db;border-radius:6px;width:100%"></div>
+<div class="form-group"><label class="label">压缩质量: <span id="qualityValue">80</span>%</label><input type="range" id="qualitySlider" min="1" max="100" value="80" style="width:100%"></div>
+<div class="btn-group"><button class="btn btn-primary" onclick="compressImage()">开始压缩</button><button class="btn btn-success" id="downloadBtn" style="display:none" onclick="downloadImage()">下载压缩图片</button></div>
+<div id="previewArea" class="output-area" style="display:none;text-align:center"><div id="imagePreview"></div><p id="sizeInfo" style="margin-top:8px;color:#6b7280"></p></div>
+<script>var b=null;function compressImage(){var f=document.getElementById("imageInput").files[0];if(!f){alert("请先选择图片");return}var q=parseInt(document.getElementById("qualitySlider").value)/100;var r=new FileReader();r.onload=function(e){var i=new Image();i.onload=function(){var c=document.createElement("canvas");c.width=i.width;c.height=i.height;c.getContext("2d").drawImage(i,0,0);c.toBlob(function(bl){b=bl;document.getElementById("imagePreview").innerHTML='<img src="'+URL.createObjectURL(bl)+'" style="max-width:100%;max-height:400px;border-radius:6px">';document.getElementById("sizeInfo").innerHTML="原始: "+(f.size/1024).toFixed(1)+"KB → 压缩后: "+(bl.size/1024).toFixed(1)+"KB";document.getElementById("previewArea").style.display="block";document.getElementById("downloadBtn").style.display="inline-flex"},f.type||"image/jpeg",q)};i.src=e.target.result};r.readAsDataURL(f)}function downloadImage(){if(b){var a=document.createElement("a");a.href=URL.createObjectURL(b);a.download="compressed-"+document.getElementById("imageInput").files[0].name;a.click()}}document.getElementById("qualitySlider").oninput=function(){document.getElementById("qualityValue").textContent=this.value};</script></div>
+  <div class="ad-slot">广告位招租 &#183; Google AdSense / &#x767e;&#x5ea6;&#x8054;&#x76df;</div>
+</div>
+<footer class="footer"><div class="container"><p>&#x2601;&#xfe0f; 云工具 - 完全免费的在线工具箱</p><p style="margin-top:4px"><a href="/">首页</a> &#183; <a href="/about.html">关于我们</a> &#183; <a href="/privacy.html">隐私政策</a></p></div></footer>
+<div class="copy-toast" id="copyToast"></div>
+<script>function copyText(t){if(!t)return;var o=document.getElementById("copyToast");navigator.clipboard?navigator.clipboard.writeText(t).then(function(){o.textContent="\u5df2\u590d\u5236\u5230\u526a\u8d34\u677f";o.classList.add("show");setTimeout(function(){o.classList.remove("show")},2e3)}).catch(function(){fallbackCopy(t)}):fallbackCopy(t)}function fallbackCopy(t){var o=document.createElement("textarea");o.value=t;o.style.position="fixed";o.style.left="-9999px";document.body.appendChild(o);o.select();document.execCommand("copy");document.body.removeChild(o);var n=document.getElementById("copyToast");n.textContent="\u5df2\u590d\u5236\u5230\u526a\u8d34\u677f";n.classList.add("show");setTimeout(function(){n.classList.remove("show")},2e3)}</script>
+</body>
+</html>
