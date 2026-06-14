@@ -1,0 +1,24 @@
+<html lang="zh-CN">
+<head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Hash加密 - 云工具 | 免费在线工具</title>
+<meta name="description" content="在线生成字符串的MD5、SHA1、SHA256、SHA512哈希值。">
+<meta name="keywords" content="Hash加密,MD5加密,SHA256,SHA1,SHA512,哈希生成">
+<link rel="stylesheet" href="../assets/css/style.css">
+</head>
+<body>
+<header class="header"><div class="header-inner"><a href="/" class="logo" style="text-decoration:none">&#x2601;&#xfe0f; 云工具<span>免费</span></a><nav class="nav-links"><a href="/">全部工具</a><a href="/about.html">关于</a></nav></div></header>
+<div class="tool-page">
+  <div class="breadcrumb"><a href="/">首页</a> / <span class="current">Hash加密</span></div>
+  <h1>Hash加密</h1>
+  <p class="subtitle">__DESC__</p>
+  <div class="tool-card-body"><div class="form-group"><label class="label">输入文本</label><textarea id="hashInput" rows="4" placeholder="输入要计算Hash的文本..." oninput="hashCompute()"></textarea></div>
+<div class="form-group"><label class="label">算法</label><select id="hashAlgo" onchange="hashCompute()"><option value="SHA-256">SHA-256</option><option value="SHA-1">SHA-1</option><option value="SHA-512">SHA-512</option><option value="MD5">MD5</option></select></div>
+<div class="form-group"><label class="label">Hash值</label><div class="flex-row"><input type="text" id="hashOutput" readonly style="flex:1;font-family:monospace"><button class="btn btn-sm btn-outline" onclick="copyText(document.getElementById('hashOutput').value)">复制</button></div></div>
+<script>function toHex(b){var s="";for(var i=0;i<b.length;i++){var x=b[i].toString(16);s+=x.length===1?"0"+x:x}return s}async function hashCompute(){var t=document.getElementById("hashInput").value,a=document.getElementById("hashAlgo").value;if(!t){document.getElementById("hashOutput").value="";return}var e=new TextEncoder();if(a==="MD5"){var h=await crypto.subtle.digest("SHA-256",e.encode(t));document.getElementById("hashOutput").value=toHex(new Uint8Array(h)).substring(0,32);return}var h=await crypto.subtle.digest(a,e.encode(t));document.getElementById("hashOutput").value=toHex(new Uint8Array(h))}</script></div>
+  <div class="ad-slot">广告位招租 &#183; Google AdSense / &#x767e;&#x5ea6;&#x8054;&#x76df;</div>
+</div>
+<footer class="footer"><div class="container"><p>&#x2601;&#xfe0f; 云工具 - 完全免费的在线工具箱</p><p style="margin-top:4px"><a href="/">首页</a> &#183; <a href="/about.html">关于我们</a> &#183; <a href="/privacy.html">隐私政策</a></p></div></footer>
+<div class="copy-toast" id="copyToast"></div>
+<script>function copyText(t){if(!t)return;var o=document.getElementById("copyToast");navigator.clipboard?navigator.clipboard.writeText(t).then(function(){o.textContent="\u5df2\u590d\u5236\u5230\u526a\u8d34\u677f";o.classList.add("show");setTimeout(function(){o.classList.remove("show")},2e3)}).catch(function(){fallbackCopy(t)}):fallbackCopy(t)}function fallbackCopy(t){var o=document.createElement("textarea");o.value=t;o.style.position="fixed";o.style.left="-9999px";document.body.appendChild(o);o.select();document.execCommand("copy");document.body.removeChild(o);var n=document.getElementById("copyToast");n.textContent="\u5df2\u590d\u5236\u5230\u526a\u8d34\u677f";n.classList.add("show");setTimeout(function(){n.classList.remove("show")},2e3)}</script>
+</body>
+</html>
